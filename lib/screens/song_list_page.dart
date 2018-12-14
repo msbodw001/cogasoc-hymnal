@@ -30,8 +30,6 @@ class _SongIndexPageState extends State<SongIndexPage> {
   @override
   Widget build(BuildContext context) {
 
-    final _titleFont = const TextStyle(fontSize: 18.0);
-
     return Scaffold(
         appBar: AppBar(title: Text('Amaculo')),
         body: ListView.builder(
@@ -41,7 +39,7 @@ class _SongIndexPageState extends State<SongIndexPage> {
             return Column(
                 children: [
                   ListTile(
-                    title: Text("${items[index].id}. ${items[index].title}", style: _titleFont,),
+                    title: Text("${items[index].id}. ${items[index].title}"),
                     onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SongDetailPage(song: items[index]))),
                   ),
                   Divider(height: 2.0,)

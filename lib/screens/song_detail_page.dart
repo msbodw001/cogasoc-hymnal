@@ -1,3 +1,4 @@
+import 'package:cogasoc_hymnal/database/database_helper.dart';
 import 'package:cogasoc_hymnal/database/model.dart';
 import 'package:flutter/material.dart';
 
@@ -12,25 +13,29 @@ class SongDetailPage extends StatefulWidget {
 
 class SongDetailPageState extends State<SongDetailPage> {
 
+  List<Song> items = new List();
+  DatabaseHelper db = new DatabaseHelper();
+
+  @override
+  void initState() {
+    super.initState();
+
+    db.getAllSongs().then((songs) => setState(() {
+      songs.forEach((song) {
+        items.add(Song.fromMap(song));
+      });
+    }));
+  }
+
   @override
   Widget build(BuildContext context) {
 
-    final _titleFont = const TextStyle(fontSize: 18.0, fontFamily: "Robot");
-    final _bodyFont = const TextStyle(fontSize: 16.0, fontFamily: "America Typewriter");
-
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: () => Navigator.pop(context)),
-        title: Text("${widget.song.title}", style: _titleFont,),
-      ),
-      body: Container(
-        child: SingleChildScrollView(
-          child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text("${widget.song.words}", style: _bodyFont),
-        ),
-        ),
-      ),
-    );
-  }
+    final _titleFont = const TextStyle(fontSize: 18.0, fontFamily: "Roboto, ");
+    final _bodyFont = const TextStyle(fontSize: 16.0, fontFamily: 'Verdana, sans-serif');
+    final _controller = PageController(initialPage: widget.song.id);
+    final _leading = new IconButton(icon: new Icon(Icons.home), onPressed: () => Navigator.pop(context));
+    List<Widget> _pages= new List<Widget>.generate(items.length, (song) => Scaffold(appBar: AppBar(leading: _leading, title: Text("${items[song].title}", style: _titleFont,)), body: Container(child: SingleChildScrollView(child: Padding(padding: const EdgeInsets.all(8.0),child: Text("${items[song].words}", style: _bodyFont),),))));
+    final pageView = PageView(controller: _controller, children: _pages,);
+    return pageView;
+    }
 }

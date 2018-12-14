@@ -45,7 +45,7 @@ class DatabaseHelper {
   void _onCreate(Database db, int newVersion) async {
     var dict =  new Map.fromIterable(zip([titles, words]).toList(), key: (v) => v[0], value: (v) => v[1]);
     await db.execute('CREATE TABLE $tableSong($columnId INTEGER PRIMARY KEY AUTOINCREMENT, $columnTitle TEXT, $columnWords TEXT)');
-    dict.forEach((k, v) => db.execute('INSERT INTO $tableSong($columnTitle, $columnWords) VALUES ("${k}", "${v}")'));
+    dict.forEach((k, v) => db.execute('INSERT INTO $tableSong($columnTitle, $columnWords) VALUES ("$k", "$v")'));
   }
 
 
