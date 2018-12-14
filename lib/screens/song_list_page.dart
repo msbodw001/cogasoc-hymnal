@@ -25,8 +25,6 @@ class _SongIndexPageState extends State<SongIndexPage> {
       }));
   }
 
-
-
   @override
   Widget build(BuildContext context) {
 
@@ -40,7 +38,7 @@ class _SongIndexPageState extends State<SongIndexPage> {
                 children: [
                   ListTile(
                     title: Text("${items[index].id}. ${items[index].title}"),
-                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SongDetailPage(song: items[index]))),
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SongDetailPage(items: items, song: items[index]))),
                   ),
                   Divider(height: 2.0,)
                 ]);
