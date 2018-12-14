@@ -20,7 +20,9 @@ class SongDetailPageState extends State<SongDetailPage> {
     final _bodyFont = const TextStyle(fontSize: 16.0, fontFamily: 'Verdana, sans-serif');
     final _controller = PageController(initialPage: widget.song.id - 1);
     final _leading = new IconButton(icon: new Icon(Icons.home), onPressed: () => Navigator.pop(context));
-    List<Widget> _pages= new List<Widget>.generate(widget.items.length, (song) => Scaffold(appBar: AppBar(leading: _leading, title: Text("${widget.items[song].title}", style: _titleFont,)), body: Container(child: SingleChildScrollView(child: Padding(padding: const EdgeInsets.all(8.0),child: Text("${widget.items[song].words}", style: _bodyFont),),))));
+    final _floatingActionButton = new FloatingActionButton.extended(onPressed: () => print("Hello world!"), icon: Icon(Icons.mic), label: Text("Record"),);
+    final _floatingActionButtonLocation = FloatingActionButtonLocation.endFloat;
+    List<Widget> _pages= new List<Widget>.generate(widget.items.length, (song) => Scaffold(floatingActionButton: _floatingActionButton, floatingActionButtonLocation: _floatingActionButtonLocation, appBar: AppBar(leading: _leading, title: Text("${widget.items[song].title}", style: _titleFont,)), body: Container(child: SingleChildScrollView(child: Padding(padding: const EdgeInsets.all(8.0),child: Text("${widget.items[song].words}", style: _bodyFont),),))));
     final pageView = PageView(controller: _controller, children: _pages,);
     return pageView;
     }
