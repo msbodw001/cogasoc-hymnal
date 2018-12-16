@@ -30,7 +30,7 @@ class _SongIndexPageState extends State<SongIndexPage> {
 
     return Scaffold(
         appBar: AppBar(title: Text('Amaculo')),
-        body: ListView.builder(
+        body: SafeArea(child: ListView.builder(
           padding: const EdgeInsets.all(8.0),
           itemCount: items.length,
           itemBuilder: (context, index){
@@ -43,7 +43,7 @@ class _SongIndexPageState extends State<SongIndexPage> {
                   Divider(height: 2.0,)
                 ]);
           },
-        ));
+        )));
   }
 }
 
