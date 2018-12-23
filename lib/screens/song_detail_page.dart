@@ -1,6 +1,7 @@
 import 'package:cogasoc_hymnal/database/model.dart';
 import 'package:flutter/material.dart';
 
+
 class SongDetailPage extends StatefulWidget {
 
   final Song song;
