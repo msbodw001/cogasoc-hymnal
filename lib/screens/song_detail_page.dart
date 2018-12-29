@@ -34,15 +34,14 @@ class SongDetailPageState extends State<SongDetailPage> {
                   "${widget.items[song].title}",
                   style: _titleFont,
                 )),
-            body: new SafeArea(
-                child: new Container(
+            body: new Container(
               child: new SingleChildScrollView(
                   child: new Padding(
                 padding: const EdgeInsets.all(8.0),
                 child:
                     new Text("${widget.items[song].words}", style: _bodyFont),
               )),
-            ))));
+            )));
     final pageView = new PageView(
       controller: _controller,
       children: _pages,

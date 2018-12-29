@@ -31,9 +31,8 @@ class _SongIndexPageState extends State<SongIndexPage> {
         appBar: PlatformAppBar(
             title: Text('Amaculo', style: TextStyle(color: Colors.white),),
             ios: (_) =>
-                CupertinoNavigationBarData(transitionBetweenRoutes: false, backgroundColor: Colors.blue)),
-        body: SafeArea(
-            child: ListView.builder(
+                CupertinoNavigationBarData(transitionBetweenRoutes: false, backgroundColor: Colors.blue,)),
+        body: ListView.builder(
           padding: const EdgeInsets.all(8.0),
           itemCount: items.length,
           itemBuilder: (context, index) {
@@ -59,6 +58,6 @@ class _SongIndexPageState extends State<SongIndexPage> {
               ]),
             );
           },
-        )));
+        ));
   }
 }

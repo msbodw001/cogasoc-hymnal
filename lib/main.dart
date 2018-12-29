@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cogasoc_hymnal/screens/lesson_list_page.dart';
 import 'package:cogasoc_hymnal/screens/song_list_page.dart';
@@ -17,8 +16,8 @@ class MyApp extends StatefulWidget {
 class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) => Platform.isAndroid
-      ? MaterialApp(title: 'Incwadi yaMaculo', home: HomePage())
-      : CupertinoApp(title: 'Incwadi yaMaculo', home: HomePage());
+      ? MaterialApp(title: 'Incwadi yaMaculo', debugShowCheckedModeBanner: false, home: HomePage())
+      : CupertinoApp(title: 'Incwadi yaMaculo', debugShowCheckedModeBanner: false, home: HomePage());
 }
 
 class HomePage extends StatefulWidget {

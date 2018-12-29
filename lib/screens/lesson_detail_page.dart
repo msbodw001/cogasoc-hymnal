@@ -1,6 +1,7 @@
 import 'package:cogasoc_hymnal/database/model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 class LessonDetailPage extends StatefulWidget {
@@ -35,15 +36,14 @@ class LessonDetailPageState extends State<LessonDetailPage> {
                   "${widget.items[lesson].title}",
                   style: _titleFont,
                 )),
-            body: new SafeArea(
-                child: new Container(
+            body: new Container(
               child: new SingleChildScrollView(
                   child: new Padding(
                 padding: const EdgeInsets.all(8.0),
                 child:
                     new Text("${widget.items[lesson].words}", style: _bodyFont),
               )),
-            ))));
+            )));
     final pageView = new PageView(
       controller: _controller,
       children: _pages,

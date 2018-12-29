@@ -32,8 +32,7 @@ class _LessonIndexPageState extends State<LessonIndexPage> {
             title: Text('Izifundo', style: TextStyle(color: Colors.white),),
             ios: (_) =>
                 CupertinoNavigationBarData(backgroundColor: Colors.blue, transitionBetweenRoutes: false)),
-        body: SafeArea(
-            child: ListView.builder(
+        body: ListView.builder(
           padding: const EdgeInsets.all(8.0),
           itemCount: items.length,
           itemBuilder: (context, index) {
@@ -59,6 +58,6 @@ class _LessonIndexPageState extends State<LessonIndexPage> {
               ]),
             );
           },
-        )));
+        ));
   }
 }
